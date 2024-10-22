@@ -1,0 +1,11 @@
+package com.fatma.Leader_Acadmy.model.Enum;
+
+public enum EducationalLevel {
+    FIRST_YEAR_OF_MIDDLE_SCHOOL,
+    SECOND_YEAR_OF_MIDDLE_SCHOOL,
+    THIRD_YEAR_OF_MIDDLE_SCHOOL,
+    FIRST_YEAR_OF_HIGH_SCHOOL,
+    SECOND_YEAR_OF_HIGH_SCHOOL,
+    THIRD_YEAR_OF_HIGH_SCHOOL
+
+}
