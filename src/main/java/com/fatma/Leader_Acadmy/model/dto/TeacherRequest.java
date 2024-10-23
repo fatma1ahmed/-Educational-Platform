@@ -40,5 +40,5 @@ public class TeacherRequest {
     @JsonProperty("level_id")
     private long levelId;
     @JsonProperty("subject_id")
-    private Subject subject;
+    private long subjectId;
 }

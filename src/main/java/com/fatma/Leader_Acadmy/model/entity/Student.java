@@ -21,6 +21,7 @@ public class Student {
     private String name;
     private String password;
     private String phone;
+    @Enumerated(EnumType.STRING)
     private EducationalLevel educationalLevel;
     @ManyToMany
     private List<Subject> subjects;

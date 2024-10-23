@@ -31,7 +31,7 @@ public class LevelController {
 
     @GetMapping("/{id}")
     public LevelResponse getEntityById(@PathVariable long id) {
-      return levelService.getEntityById(id);
+      return levelService.getById(id);
     }
 
    @GetMapping

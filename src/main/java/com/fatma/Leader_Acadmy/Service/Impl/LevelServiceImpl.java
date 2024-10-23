@@ -37,14 +37,14 @@ public class LevelServiceImpl implements LevelService {
     }
 
 
-    private Level getById(long id) {
+    public Level getEntityById(long id) {
         return levelRepo.findById(id).orElseThrow(
                 ()->new RecordNotFoundException("this level with id : " + id + "not found")
         );
     }
 
     @Override
-    public LevelResponse getEntityById(long id) {
+    public LevelResponse getById(long id) {
         Level level=levelRepo.findById(id).orElseThrow(
                 ()->new RecordNotFoundException("this level with id : " + id + "not found")
         );
