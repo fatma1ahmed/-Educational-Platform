@@ -47,7 +47,7 @@ public class SubjectServiceImpl implements SubjectService {
         );
         return subjectMapper.toResponse(subject);
     }
-    private Subject getEntityById(long id) {
+    public Subject getEntityById(long id) {
         return subjectRepo.findById(id).orElseThrow(
                 ()->new RecordNotFoundException("this subject with id : " + id + "not found")
         ) ;
