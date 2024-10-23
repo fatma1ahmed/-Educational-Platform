@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SubjectRequest {
     @JsonProperty("subject_name")
-    @NotNull(message = "please,enter subject name")
+  @NotNull(message = "please,enter subject name")
     private String name;
     @JsonProperty("level_id")
     private long levelId;

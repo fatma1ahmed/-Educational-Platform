@@ -3,7 +3,6 @@ package com.fatma.Leader_Acadmy.Controller;
 import com.fatma.Leader_Acadmy.Service.StudentService;
 import com.fatma.Leader_Acadmy.model.dto.StudentRequest;
 import com.fatma.Leader_Acadmy.model.dto.StudentResponse;
-import com.fatma.Leader_Acadmy.model.entity.Student;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
