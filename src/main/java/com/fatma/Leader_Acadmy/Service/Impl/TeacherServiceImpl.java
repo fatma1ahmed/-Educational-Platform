@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TeacherServiceImpl implements TeacherService {
@@ -66,5 +67,10 @@ public class TeacherServiceImpl implements TeacherService {
         teacherRepo.deleteById(id);
         return new ResponseEntity<>("teacher with id " + id + "deleted successfully", HttpStatus.ACCEPTED);
 
+    }
+
+    @Override
+    public List<TeacherResponse> getAllTeachersByLevelId(long levelId) {
+        return teacherRepo.findAllByLevelId(levelId).stream().map(teacherMapper::toResponse).collect(Collectors.toList());
     }
 }
