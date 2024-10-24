@@ -47,7 +47,7 @@ public class TeacherServiceImpl implements TeacherService {
         );
         return teacherMapper.toResponse(teacher);
     }
-    private Teacher getEntityById(long id) {
+    public Teacher getEntityById(long id) {
         return teacherRepo.findById(id).orElseThrow(
                 ()->new RecordNotFoundException("this teacher with id : " + id + "not found")
         );

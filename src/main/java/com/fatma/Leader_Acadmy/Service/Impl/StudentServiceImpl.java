@@ -3,11 +3,13 @@ package com.fatma.Leader_Acadmy.Service.Impl;
 import com.fatma.Leader_Acadmy.Repository.StudentRepo;
 import com.fatma.Leader_Acadmy.Service.StudentLevelService;
 import com.fatma.Leader_Acadmy.Service.StudentService;
+import com.fatma.Leader_Acadmy.Service.SubjectService;
 import com.fatma.Leader_Acadmy.exception.DuplicateRecordException;
 import com.fatma.Leader_Acadmy.exception.RecordNotFoundException;
 import com.fatma.Leader_Acadmy.model.dto.StudentRequest;
 import com.fatma.Leader_Acadmy.model.dto.StudentResponse;
 import com.fatma.Leader_Acadmy.model.entity.Student;
+import com.fatma.Leader_Acadmy.model.entity.Subject;
 import com.fatma.Leader_Acadmy.model.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +27,8 @@ public class StudentServiceImpl implements StudentService {
     private StudentMapper studentMapper;
     @Autowired
     private StudentLevelService studentLevelService;
+    @Autowired
+    private SubjectServiceImpl subjectService;
     @Override
     public StudentResponse add(StudentRequest Request) {
         Student student=studentMapper.toEntity(Request);
@@ -83,5 +87,11 @@ public class StudentServiceImpl implements StudentService {
     public StudentResponse login(String phone, String password) {
         Optional<Student> student=studentRepo.findByPhoneAndPassword(phone,password);
         return studentMapper.toResponse(student.get());
+    }
+    public ResponseEntity<?> assignSubjectToStudent(int studentId,int subjectId){
+        Student student=getEntityById(studentId);
+        Subject subject=subjectService.getEntityById(subjectId);
+        student.getSubjects().add(subject);
+        return new ResponseEntity<>(studentRepo.save(student),HttpStatus.CREATED);
     }
 }

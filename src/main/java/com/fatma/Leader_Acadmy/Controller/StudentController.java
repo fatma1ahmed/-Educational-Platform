@@ -1,5 +1,6 @@
 package com.fatma.Leader_Acadmy.Controller;
 
+import com.fatma.Leader_Acadmy.Service.Impl.StudentServiceImpl;
 import com.fatma.Leader_Acadmy.Service.StudentService;
 import com.fatma.Leader_Acadmy.model.dto.StudentRequest;
 import com.fatma.Leader_Acadmy.model.dto.StudentResponse;
@@ -17,6 +18,8 @@ import java.util.Optional;
 public class StudentController {
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private StudentServiceImpl studentServiceImpl;
     @PostMapping
     public StudentResponse add(@RequestBody @Valid StudentRequest Request) {
         return studentService.add(Request);
@@ -46,5 +49,10 @@ public class StudentController {
    @PostMapping("/login")
     public StudentResponse login(@RequestParam  String phone, @RequestParam String password) {
         return studentService.login(phone,password);
+    }
+    @PostMapping("/assignSubjectToStudent/{studentId}/{subjectId}")
+    public ResponseEntity<?> assignSubjectToStudent(@PathVariable int studentId,@PathVariable int subjectId){
+        return studentServiceImpl.assignSubjectToStudent(studentId,subjectId);
+
     }
 }
