@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PackageServiceImpl implements PackageService {
@@ -64,5 +65,12 @@ public class PackageServiceImpl implements PackageService {
         getEntityById(id);
         packageRepo.deleteById(id);
         return new ResponseEntity<>("Package with id " + id + "deleted successfully", HttpStatus.ACCEPTED);
+    }
+
+    @Override
+    public List<PackageResponse> findAllByTeacherIdAndLevelId(long teacherId, long levelId) {
+        return packageRepo.findAllByTeacherIdAndLevelId(teacherId,levelId).stream().map(
+                packageMapper::toResponse
+        ).collect(Collectors.toList());
     }
 }

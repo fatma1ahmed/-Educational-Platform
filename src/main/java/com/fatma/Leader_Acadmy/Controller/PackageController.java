@@ -34,6 +34,10 @@ public class PackageController {
     public ResponseEntity<?> deleteById(long id) {
         return packageService.deleteById(id);
     }
+    @GetMapping("getPackages/{teacherId}/{levelId}")
+    public List<PackageResponse> findAllByTeacherIdAndLevelId(@PathVariable long teacherId, @PathVariable long levelId){
+        return packageService.findAllByTeacherIdAndLevelId(teacherId,levelId);
+    }
 
 
 }
