@@ -72,8 +72,8 @@ public class LessonServiceImpl implements LessonService {
     }
 
     @Override
-    public List<LessonResponse> getAllByPackageId(long packageId) {
-        return lessonRepo.findAllByPackageId(packageId).stream().map(
+    public List<LessonResponse> getAllByPackageId(long packageeId) {
+        return lessonRepo.findAllByPackageeId(packageeId).stream().map(
                 lessonMapper::toResponse
         ).collect(Collectors.toList());
     }

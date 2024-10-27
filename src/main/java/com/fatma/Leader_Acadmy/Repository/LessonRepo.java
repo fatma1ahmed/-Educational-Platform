@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface LessonRepo extends JpaRepository<Lesson,Long> {
-    List<Lesson> findAllByPackageId(long packageId);
+    List<Lesson> findAllByPackageeId(long packageeId);
 }

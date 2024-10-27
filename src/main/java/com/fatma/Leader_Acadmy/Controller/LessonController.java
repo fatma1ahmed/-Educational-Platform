@@ -35,8 +35,8 @@ public class LessonController {
     public ResponseEntity<?> deleteById(long id) {
         return lessonService.deleteById(id);
     }
-    @GetMapping("/getLessons/{packageId}")
-    public List<LessonResponse> getAllByPackageId(@PathVariable long packageId) {
-        return lessonService.getAllByPackageId(packageId);
+    @GetMapping("/getLessons/{packageeId}")
+    public List<LessonResponse> getAllByPackageId(@PathVariable long packageeId) {
+        return lessonService.getAllByPackageId(packageeId);
     }
 }

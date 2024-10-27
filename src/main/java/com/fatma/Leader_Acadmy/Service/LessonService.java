@@ -9,5 +9,5 @@ import java.util.List;
 
 @Service
 public interface LessonService extends CrudService<Lesson, LessonRequest, LessonResponse> {
-    List<LessonResponse> getAllByPackageId(long packageId);
+    List<LessonResponse> getAllByPackageId(long packageeId);
 }
